@@ -37,7 +37,7 @@ print(array2[0:2, 2:4])  # selecting only particular rows and columns
 print(np.sqrt(array))
 print(np.round(array))
 
-array3 = np.array([65, 74, 81, 66, 100])
+array3 = np.array([65, 74, 81, 66, 100, 50, 55, 61])
 print(array3 == 100)
 
 ##  broadcasting is multiplying/transforming matrices where they can be different dimensions
@@ -49,3 +49,31 @@ print(matrix1 * matrix2)
 
 # aggregate functions
 print(np.var(array2))
+print(np.argmax(matrix1))
+
+# we can sum the columns or rows using the axis parameter
+matrix3 = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+print(np.sum(matrix3, axis=1))
+
+# filtering is selecting values/elements on the basis of some conditions
+passed = array3[array3 > 70]
+just_passed = array3[(array3 >= 50) & (array3 < 70)]
+even_scores = array3[array3 % 2 == 0]
+print(passed)
+print(just_passed)
+print(even_scores)
+
+
+# random numbers/variable
+rng = np.random.default_rng()
+# print(rng.integers(low, high, (shape, shape)))
+print(rng.integers(1, 1000, (2, 2)))
+
+print(np.random.uniform())
+
+rng_shuffle = np.random.default_rng()
+rng_shuffle.shuffle(matrix1)  # shuffling the numbers in an array
+print(matrix1)
+
+random_choice = rng_shuffle.choice(matrix1)  # choosing random number from the array
+print(random_choice)  
